@@ -47,6 +47,13 @@ module.exports = (client) => {
         return text;
     };
 
+    client.send = async (Discord, channel, title, content, color) => {
+        const embed = new Discord.RichEmbed()
+            .addField(title, content)
+            .setColor(!color ? 0xffffff : color);
+        channel.send({ embed });
+    };
+
     String.prototype.toProperCase = function () {
         return this.replace(/([^\W_]+[^\s-]*) */g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
     };

@@ -8,42 +8,31 @@ exports.run = async (client, message, [action, key, ...value], level) => { // es
 
     if (action === `edit`) {
         if (!key) {
-            await message.channel.sendEmbed(new Discord.RichEmbed()
-                .addField(`:no_entry_sign: | Error!`, `Please specify a key to edit...`)
-                .setColor(0xffffff));
+            await client.send(Discord, message.channel, `Error!`, `Please specify a key to edit...`);
             return;
         }
         if (!settings[key]) {
-            await message.channel.sendEmbed(new Discord.RichEmbed()
-                .addField(`:no_entry_sign: | Error!`, `That key does not exist!`)
-                .setColor(0xffffff));
+            await client.send(Discord, message.channel, `Error!`, `That key does not exist!`);
             return;
         }
         if (value.length < 1) {
-            await message.channel.sendEmbed(new Discord.RichEmbed()
-                .addField(`:no_entry_sign: | Error!`, `Please specify a new value`)
-                .setColor(0xffffff));
+            await client.send(Discord, message.channel, `Error!`, `Please specify a new value!`);
             return;
         }
 
         settings[key] = value.join(` `);
 
         client.settings.set(message.guild.id, settings);
-        message.channel.sendEmbed(new Discord.RichEmbed()
-            .addField(`Success!`, `${key} successfully edited to ${value.join(` `)}`)
-            .setColor(0xffffff));
+
+        client.send(Discord, message.channel, `Success!`, `\`${key}\` successfully edited to \`${value.join(` `)}\``)
     } else
     if (action === `get`) {
         if (!key) {
-            message.channel.sendEmbed(new Discord.RichEmbed()
-                .addField(`:no_entry_sign: | Error!`, `Please specify a key to view`)
-                .setColor(0xffffff));
+            client.send(Discord, message.channel, `Error!`, `Please specify a key to view!`)
             return;
         }
         if (!settings[key]) {
-            await message.channel.sendEmbed(new Discord.RichEmbed()
-                .addField(`:no_entry_sign: | Error!`, `This key does not exist in the settings`)
-                .setColor(0xff5454));
+            client.send(Discord, message.channel, `Error!`, `This key does not exist in the settings`)
         }
         message.reply(`The value of ${key} is currently ${settings[key]}`);
     } else {

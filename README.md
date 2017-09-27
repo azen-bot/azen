@@ -9,8 +9,4 @@
 <h3 align="center">
   <br>
   A Z E N: A flexible, multi-purpose discord bot written in discord.js
-</h3>
-
-<h3 align="center">
-Created by Affinix and Aoneo
-</h3>
+</h4>

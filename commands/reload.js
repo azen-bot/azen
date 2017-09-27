@@ -10,10 +10,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         command = client.commands.get(client.aliases.get(args[0]));
     }
     if (!command) {
-        await message.channel.sendEmbed(new Discord.RichEmbed()
-            .addField(`:no_entry_sign: | Error!`, `The command \`${args[0]}\` doesn't seem to exist!`)
-            .setColor(0xffffff));
-        return;
+        return client.send(Discord, message.channel, `Error!`, `The command \`${args[0]}\` doesn't seem to exist!`);
     }
     command = command.help.name;
 
@@ -27,9 +24,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     cmd.conf.aliases.forEach((alias) => {
         client.aliases.set(alias, cmd.help.name);
     });
-    message.channel.sendEmbed(new Discord.RichEmbed()
-        .addField(`Success!`, `The command \`${command}\` has been reloaded`)
-        .setColor(0xffffff));
+    client.send(Discord, message.channel, `Success!`, `The command \`${command}\` has been reloaded`);
 };
 
 exports.conf = {
