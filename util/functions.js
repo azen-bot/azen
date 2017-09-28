@@ -50,7 +50,7 @@ module.exports = (client) => {
     client.send = async (Discord, channel, title, content, color) => {
         const embed = new Discord.RichEmbed()
             .addField(title, content)
-            .setColor(!color ? 0xffffff : color);
+            .setColor(!color ? 0xFF2267 : color);
         channel.send({ embed });
     };
 

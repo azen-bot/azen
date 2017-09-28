@@ -16,7 +16,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         .addField(`Discord.js:`, version, true)
         .addField(`Node.js:`, process.version, true)
         .addField(`Azen:`, `v0.0.1`, true)
-        .setColor(0xffffff);
+        .setColor(0xFF2267);
     message.channel.send({ embed });
 };
 exports.conf = {

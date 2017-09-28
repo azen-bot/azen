@@ -12,14 +12,14 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
                 message.channel.sendEmbed(new Discord.RichEmbed()
                     .addField(`Input:`, `\`\`\`js\n${code}\n\`\`\``)
                     .addField(`Output:`, `\`\`\`The output was too long, so I've posted it to hastebin: ${link}\`\`\``)
-                    .setColor(0xffffff));
+                    .setColor(0xFF2267));
             }).catch(console.error);
             return;
         }
         await message.channel.sendEmbed(new Discord.RichEmbed()
             .addField(`Input:`, `\`\`\`js\n${code}\n\`\`\``)
             .addField(`Output:`, `\`\`\`js\n${clean}\n\`\`\``)
-            .setColor(0xffffff));
+            .setColor(0xFF2267));
     } catch (err) {
         const errClean = await client.clean(client, err);
         if (errClean.length > 1024) {
@@ -27,14 +27,14 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
                 message.channel.sendEmbed(new Discord.RichEmbed()
                     .addField(`Input:`, `\`\`\`js\n${code}\n\`\`\``)
                     .addField(`Output:`, `\`\`\`The output was too long, so I've posted it to hastebin: ${link}\`\`\``)
-                    .setColor(0xffffff));
+                    .setColor(0xFF2267));
             }).catch(console.error);
             return;
         }
         await message.channel.sendEmbed(new Discord.RichEmbed()
             .addField(`Input:`, `\`\`\`js\n${code}\n\`\`\``)
             .addField(`:no_entry_sign: | Error!`, `\`\`\`xl\n${errClean}\n\`\`\``)
-            .setColor(0xffffff));
+            .setColor(0xFF2267));
     }
 };
 

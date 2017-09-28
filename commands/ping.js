@@ -4,7 +4,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     const msg = await message.channel.send(`Pinging...`);
     const embed = new Discord.RichEmbed()
         .addField(`Pong!`, `Latency is ${msg.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`)
-        .setColor(0xffffff);
+        .setColor(0xFF2267);
 
     msg.edit({ embed });
 };

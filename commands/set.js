@@ -24,7 +24,7 @@ exports.run = async (client, message, [action, key, ...value], level) => { // es
 
         client.settings.set(message.guild.id, settings);
 
-        client.send(Discord, message.channel, `Success!`, `\`${key}\` successfully edited to \`${value.join(` `)}\``)
+        client.send(Discord, message.channel, `Success!`, `\`${key}\` successfully edited to \`${value.join(` `)}\``);
     } else
     if (action === `get`) {
         if (!key) {
@@ -50,7 +50,7 @@ exports.conf = {
 exports.help = {
     name: `set`,
     category: `System`,
-    Desccription: `Settings for this server`,
+    description: `Settings for this server`,
     extendedDescription: `I set the settings for this server! Requires perm level 3`,
     usage: `set [view/get/edit] [key] [value]`,
 };
