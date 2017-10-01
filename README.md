@@ -15,3 +15,5 @@
   <br>
   By Affinix and Aoneo
 </h4>
+
+Based off guidebot
